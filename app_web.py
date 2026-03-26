@@ -44,7 +44,7 @@ def salvar_lancamento(data, fornecedor, centro_custo, valor, status):
     conn.close()
 
 # INTERFACE PRINCIPAL (PÓS-LOGIN)
-st.title("🏢 Sistema de Fluxo de Caixa - Gestão PME")
+st.title("🏢 Nexus Finance - Gestão PME")
 st.markdown("---")
 
 # Botão barra lateral
@@ -53,7 +53,7 @@ if st.sidebar.button("🚪 Sair do Sistema"):
     st.rerun()
 
 #BARRA LATERAL
-st.sidebar.header("📝 Novos Lançamentos") 
+st.sidebar.header("📝 Novo Lançamento") 
 with st.sidebar.form("form_empresa"):
     data_venc = st.date_input("Data de Vencimento")
     fornecedor_input = st.text_input("Fornecedor / Prestador")
@@ -89,7 +89,7 @@ conn.close()
 
 # DASHBOARD
 if not df.empty:
-    st.subheader("🔍 Filtros de Gestão")
+    st.subheader("🔍 Painel de Auditoria e Controle")
     col_f1, col_f2 = st.columns(2)
     with col_f1:
         filtro_status = st.multiselect("Filtrar por Status:", options=df['status'].unique(), default=df['status'].unique())
@@ -101,7 +101,7 @@ if not df.empty:
     col_tabela, col_grafico = st.columns([2, 1])
     
     with col_tabela:
-        st.subheader("📑 Livro de Saídas")
+        st.subheader("📑 Data View: Histórico de Transações")
         if not df_filtrado.empty:
             df_visivel = df_filtrado.drop(columns=['id', 'ativo']).rename(columns={
                 'data': 'Vencimento', 'descricao': 'Fornecedor', 'categoria': 'Setor', 'valor': 'Valor (R$)'
@@ -115,7 +115,7 @@ if not df.empty:
             st.warning("Nenhum dado encontrado para os filtros.")
 
     with col_grafico:
-        st.subheader("📊 Indicadores")
+        st.subheader("📊 KPIs de Performance Financeira")
         if not df_filtrado.empty:
             st.metric("Total no Período", f"R$ {df_filtrado['valor'].sum():.2f}")
             fig = px.pie(df_filtrado, values='valor', names='categoria', hole=0.4, title="Gastos por Setor")
@@ -126,7 +126,7 @@ else:
 
 # MANUTENÇÃO (ARQUIVAR)
 st.markdown("---")
-if st.button("🧹 Arquivar Lançamentos"):
+if st.button("🧹 Delete"):
     conn = conectar()
     conn.execute("UPDATE transacoes SET ativo = 0 WHERE ativo = 1")
     conn.commit()
