@@ -1,6 +1,6 @@
 ## 🏢 ERP Light - Gestão Financeira para PMEs
 
-Este é um sistema de Fluxo de Caixa desenvolvido em Python, focado em resolver limitações comuns do uso de planilhas de Excel em PMEs. Diferente das planilhas convencionais, este projeto oferece uma plataforma centralizada que permite múltiplos acessos simultâneos com integridade de dados, além de uma estrutura preparada para o registro e rastreabilidade de modificações(versão 2.0), garantindo maior controle sobre quem realiza cada operação no sistema.
+O objetivo é automatizar o fluxo de dados financeiros, eliminando processos manuais de planilhas e utilizando SQL para persistência e análise de dados em tempo real.Este é um sistema de Fluxo de Caixa desenvolvido em Python, focado em resolver limitações comuns do uso de planilhas de Excel em PMEs. Diferente das planilhas convencionais, este projeto oferece uma plataforma centralizada que permite múltiplos acessos simultâneos com integridade de dados, além de uma estrutura preparada para o registro e rastreabilidade de modificações(versão 2.0), garantindo maior controle sobre quem realiza cada operação no sistema.
 
 ## 🚀 Funcionalidades
 
